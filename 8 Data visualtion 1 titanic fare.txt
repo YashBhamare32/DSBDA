@@ -1,0 +1,24 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load the Titanic dataset
+titanic = sns.load_dataset('titanic')
+
+# Plot histogram for fare distribution
+plt.figure(figsize=(10, 6))
+sns.histplot(titanic['fare'], bins=20, kde=True, color='skyblue')
+plt.title('Distribution of Ticket Prices (Fare)')
+plt.xlabel('Fare')
+plt.ylabel('Frequency')
+plt.grid(True)
+plt.show()
+
+
+Observations:
+
+1. The histogram shows that the distribution of ticket prices (fare) is right-skewed, with a peak towards the lower fare values and a long tail extending towards higher fare values.
+2. The majority of passengers seem to have paid lower fares, as indicated by the higher frequency of lower fare values.
+3. There are relatively fewer passengers who paid higher fares, suggesting that premium tickets were less common among passengers.
+4. The presence of a long tail towards higher fare values indicates that there were some passengers who purchased more expensive tickets, potentially for higher class accommodations or additional amenities.
+5. The kernel density estimate curve overlaid on the histogram provides a smoother representation of the fare distribution, showing a gradual decrease in frequency as fare values increase.
+6. Overall, the distribution of ticket prices suggests that the Titanic accommodated passengers from various socioeconomic backgrounds, with the majority opting for more affordable fare options.

@@ -1,0 +1,57 @@
+import scala.io.StdIn
+object ArithmeticOperations {
+  def main(args: Array[String]): Unit = {
+    print("Enter two numbers : ")
+    val num1 = StdIn.readLine().toDouble
+    val num2 = StdIn.readLine().toDouble
+    println("Select an operation : ")
+    println("1. Addition")
+    println("2. Subtraction")
+    println("3. Multiplication")
+    println("4. Division")
+    val choice = StdIn.readLine().toInt
+    val result = choice match {
+      case 1 => num1 + num2
+      case 2 => num1 - num2
+      case 3 => num1 * num2
+      case 4 => if (num2 != 0) num1 / num2 else "Cannot divide by zero"
+      case _ => "Invalid choice"
+    }
+    println(s"Result: $result")
+  }
+}
+
+
+
+
+
+
+
+
+This Scala program allows the user to perform arithmetic operations (addition, subtraction, multiplication, and division) on two numbers input by the user. Here's a detailed explanation of each part of the code:
+
+1. `import scala.io.StdIn`: This line imports the `StdIn` object from the `scala.io` package, which provides functionality for reading input from the standard input stream (keyboard).
+
+2. `object ArithmeticOperations { ... }`: This defines an object named `ArithmeticOperations`, which serves as the entry point for the program. In Scala, the `object` keyword is used to create a singleton object, similar to a Java class with static methods.
+
+3. `def main(args: Array[String]): Unit = { ... }`: This defines the `main` method, which is the entry point of the program. It takes an array of strings (`args`) as input and returns nothing (`Unit`). Inside this method, the program logic is written.
+
+4. `print("Enter two numbers : ")`: This line prints the prompt asking the user to enter two numbers.
+
+5. `val num1 = StdIn.readLine().toDouble`: This line reads a line of input from the standard input stream using `StdIn.readLine()`, converts it to a `Double` using `toDouble`, and assigns it to the variable `num1`.
+
+6. `val num2 = StdIn.readLine().toDouble`: This line reads another line of input from the standard input stream, converts it to a `Double`, and assigns it to the variable `num2`.
+
+7. `println("Select an operation : ")`: This line prints the prompt asking the user to select an operation.
+
+8. `println("1. Addition")`, `println("2. Subtraction")`, `println("3. Multiplication")`, `println("4. Division")`: These lines print the options for the user to select an operation.
+
+9. `val choice = StdIn.readLine().toInt`: This line reads the user's choice of operation as input, converts it to an integer, and assigns it to the variable `choice`.
+
+10. `val result = choice match { ... }`: This line uses a `match` expression to perform different actions based on the value of `choice`. It assigns the result of the selected arithmetic operation to the variable `result`.
+
+11. `case 1 => num1 + num2`, `case 2 => num1 - num2`, `case 3 => num1 * num2`, `case 4 => if (num2 != 0) num1 / num2 else "Cannot divide by zero"`: These are the different cases handled by the `match` expression. Depending on the value of `choice`, it performs addition, subtraction, multiplication, or division of `num1` and `num2`. If the choice is division (`case 4`), it checks if `num2` is not zero before performing the division operation.
+
+12. `case _ => "Invalid choice"`: This is the default case for the `match` expression, which handles invalid choices entered by the user.
+
+13. `println(s"Result: $result")`: This line prints the result of the arithmetic operation to the console using string interpolation (`$result`). If the result is a string (in the case of division by zero), it prints the corresponding message.

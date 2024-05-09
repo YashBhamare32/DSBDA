@@ -1,0 +1,75 @@
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+from nltk import pos_tag
+
+sentence1 = "I will walk 500 miles and I would walk 500 more. Just to be the man who walks " + \
+            "a thousand miles to fall down at your door!"
+sentence2 = "I played the play playfully as the players were playing in the play with playfullness"
+
+#TOKENIZATION
+from nltk import word_tokenize, sent_tokenize
+
+print('Tokenized words:', word_tokenize(sentence1))
+print('\nTokenized sentences:', sent_tokenize(sentence1))
+
+
+#POS TAGGING
+from nltk import pos_tag
+
+token = word_tokenize(sentence1) + word_tokenize(sentence2)
+tagged = pos_tag(token)                 
+
+print("Tagging Parts of Speech:", tagged)
+
+
+#STOP-WORDS REMOVAL
+from nltk.corpus import stopwords
+
+stop_words = stopwords.words('english')
+
+token = word_tokenize(sentence1)
+cleaned_token = []
+
+for word in token:
+    if word not in stop_words:
+        cleaned_token.append(word)
+
+print('Unclean version:', token)
+print('\nCleaned version:', cleaned_token)
+
+
+#STEMMING
+from nltk.stem import PorterStemmer
+
+stemmer = PorterStemmer()
+
+token = word_tokenize(sentence2)
+
+stemmed = [stemmer.stem(word) for word in token]
+print(" ".join(stemmed))
+
+
+#LEMMATIZATION
+from nltk.stem import WordNetLemmatizer 
+
+lemmatizer = WordNetLemmatizer()
+
+token = word_tokenize(sentence2)
+
+lemmatized_output = [lemmatizer.lemmatize(word) for word in token]
+print(" ".join(lemmatized_output))
+
+
+#IF LOOKUP ERROR RUN THIS
+#import nltk
+#nltk.download('punkt')
+#nltk.download('averaged_perceptron_tagger')
+#nltk.download('stopwords')
+#nltk.download('wordnet')
+
+
+#Stemming is a technique used to extract the base form of the words by removing affixes from them. It is just like cutting down the branches of a tree to its stems. For example, the stem of the words eating, eats, eaten is eat.
+
+#Lemmatization technique is like stemming. The output we will get after lemmatization is called ‘lemma’, which is a root word rather than root stem, the output of stemming. After lemmatization, we will be getting a valid word that means the same thing.

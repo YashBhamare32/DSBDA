@@ -1,0 +1,47 @@
+import numpy as np
+import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv(r"C:\Users\bobby\OneDrive\Desktop\college labs\DSBDA Labs\dsbda\4 data analytics 1 train boston housing\HousingData.csv")
+df.head()
+df.tail()
+df.describe()
+df.info()
+
+df.dropna(axis=0 , inplace=True)
+X=df.iloc[: , :-1]
+y=df.iloc[: , -1]
+
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+LinearRegression()
+
+y_pred = model.predict(X_test)
+
+
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+print("Mean Squared Error:", mse)
+print("R^2 Score:", r2)
+
+
+import matplotlib.pyplot as plt
+plt.scatter(y_test, y_pred)
+plt.xlabel("Actual Prices")
+plt.ylabel("Predicted Prices")
+plt.title("Actual vs Predicted Prices")
+plt.legend(["Actual vs Predicted"])
+
+#ADD A DIAGONAL LINE
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--')
+
+plt.show()

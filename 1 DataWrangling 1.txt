@@ -1,0 +1,23 @@
+import pandas as pd
+import numpy as np
+iris = pd.read_csv("")
+iris
+
+iris.head()
+iris.tail()
+iris.index
+iris.columns
+iris.shape
+iris.dtypes
+iris.columns.values
+iris.sort_index(axis=1 , ascending = False)
+iris.iloc[0:10 , 1:5]
+iris.isnull()
+iris.notnull()
+iris.notnull().sum()
+iris.isnull().values.any()
+iris.loc[: , ["SepalLength" , "PetalLength"]]
+iris.loc[:100 , : ]
+iris.transpose()
+iris.iloc[[1,2,4] , [2,5]]
+iris.sort_values("SepalLength")

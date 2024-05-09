@@ -1,0 +1,59 @@
+import numpy as np
+import pandas as pd
+df= pd.read_csv("F:/TE All Codes/Sem-6 Lab Files/DSABDAL/Dataset/Iris.csv")
+df
+
+df.head()
+df.tail()
+
+df.loc[:,"SepalLengthCm"].mean()
+df.loc[:,"SepalLengthCm"].median()
+df.loc[:,"SepalLengthCm"].mode()
+df.loc[:,"SepalLengthCm"].std()
+df.loc[:,"SepalLengthCm"].var()
+df.loc[:,"SepalLengthCm"].min()
+df.loc[:,"SepalLengthCm"].max()
+df.loc[:,"SepalLengthCm"].count()
+
+df.loc[:,"SepalWidthCm"].mean()
+df.loc[:,"SepalWidthCm"].median()
+df.loc[:,"SepalWidthCm"].mode()
+df.loc[:,"SepalWidthCm"].std()
+df.loc[:,"SepalWidthCm"].var()
+df.loc[:,"SepalWidthCm"].min()
+df.loc[:,"SepalWidthCm"].max()
+df.loc[:,"SepalWidthCm"].count()
+
+df.loc[:,"PetalLengthCm"].mean()
+df.loc[:,"PetalLengthCm"].median()
+df.loc[:,"PetalLengthCm"].mode()
+df.loc[:,"PetalLengthCm"].std()
+df.loc[:,"PetalLengthCm"].var()
+df.loc[:,"PetalLengthCm"].min()
+df.loc[:,"PetalLengthCm"].max()
+df.loc[:,"PetalLengthCm"].count()
+
+df.loc[:,"PetalWidthCm"].mean()
+df.loc[:,"PetalWidthCm"].median()
+df.loc[:,"PetalWidthCm"].mode()
+df.loc[:,"PetalWidthCm"].std()
+df.loc[:,"PetalWidthCm"].var()
+df.loc[:,"PetalWidthCm"].min()
+df.loc[:,"PetalWidthCm"].max()
+df.loc[:,"PetalWidthCm"].count()
+
+df.describe()
+
+
+
+import numpy as np
+import pandas as pd
+df=pd.read_csv("F:/TE All Codes/Sem-6 Lab Files/DSABDAL/Dataset/HR_Analytics.csv")
+df
+df.head()
+df.tail()
+
+
+df["BusinessTravel"].replace({"Travel_Rarely":1, "Travel_Frequently":0}, inplace=True)
+df["Attrition"].replace({"Yes":1,"No":0}, inplace=True)
+df
